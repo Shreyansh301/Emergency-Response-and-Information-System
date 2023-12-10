@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Emergency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Emergency Response System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report an Emergency</a></li>
+                <li><a href="information.html">Emergency Information</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="emergencyForm">
+            <h2>Report an Emergency</h2>
+            <form id="reportForm">
+                <label for="incidentType">Incident Type:</label>
+                <input type="text" id="incidentType" name="incidentType" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
