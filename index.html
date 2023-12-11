@@ -27,8 +27,54 @@
             <p>This website aims to empower communities with real-time, accessible information during emergencies.</p>
         </section>
     </main>
-    <button class="sos-button" id="sosButton">SOS</button>
-    <script src="script.js"></script>
+    <form id="sosForm" action="https://formspree.io/f/mgejgrgw" method="POST">
+        &nbsp; <label for="latitude" style="margin-left: 10px;">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" readonly>
+        <br>
+        &nbsp; <label for="longitude" style="margin-left: 10px;">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" readonly>
+        <br>
+        <button type="button" id="sosButton" onclick="sendSOS()">SOS</button>
+    </form>
+
+    <script>
+        function sendSOS() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function successCallback(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Update the form fields with the obtained coordinates
+            document.getElementById("latitude").value = latitude;
+            document.getElementById("longitude").value = longitude;
+
+            // Submit the form
+            document.getElementById("sosForm").submit();
+        }
+
+        function errorCallback(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>
 
