@@ -24,4 +24,25 @@ setInterval(updateDateTime, 1000);
 // Initial call to display date and time immediately
 updateDateTime();
 
+// ... (existing code)
+
+document.getElementById('sosButton').addEventListener('click', sendSOS);
+
+function sendSOS() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const { latitude, longitude } = position.coords;
+                alert(`SOS Sent!\nLatitude: ${latitude}\nLongitude: ${longitude}`);
+            },
+            error => {
+                alert(`Error getting location: ${error.message}`);
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by this browser.');
+    }
+}
+
+
 
