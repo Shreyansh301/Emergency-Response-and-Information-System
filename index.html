@@ -35,7 +35,8 @@
         &nbsp; <label for="longitude" style="margin-left: 10px;">Longitude:</label>
         <input type="text" id="longitude" name="longitude" readonly>
         <br>
-        <button type="button" id="sosButton" onclick="sendSOS()">SOS</button>
+        <button type="button" id="sosButton" onmouseover="displayWarning()" onmouseout="hideWarning()" onclick="sendSOS()">SOS</button>
+        <p id="warningMessage" style="color: red; margin-top: 40px; margin-left: 70px; display: none;">Only click when immediate assistance is needed!</p>
     </form>
 
     <script>
@@ -75,6 +76,15 @@
                     break;
             }
         }
+        function displayWarning() {
+        // Display the warning message
+        document.getElementById("warningMessage").style.display = "block";
+    }
+
+    function hideWarning() {
+        // Hide the warning message when the mouse is not over the SOS button
+        document.getElementById("warningMessage").style.display = "none";
+    }
     </script>
 </body>
 </html>
