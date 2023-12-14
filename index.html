@@ -26,6 +26,11 @@
         <section>
             <h2>Welcome to the Emergency Response System</h2>
             <p>This website aims to empower communities with real-time, accessible information during emergencies.</p>
+        </section><br>
+        <section style="background-color: #d40000;">
+            <h3 align="center" style="color: white;">
+                Project (DSN3099) - Phase 1 - Progress Review I
+            </h3>
         </section>
     </main>
     <form id="sosForm" action="https://formspree.io/f/mgejgrgw" method="POST">
@@ -36,7 +41,7 @@
         <input type="text" id="longitude" name="longitude" readonly>
         <br>
         <button type="button" id="sosButton" onmouseover="displayWarning()" onmouseout="hideWarning()" onclick="sendSOS()">SOS</button>
-        <p id="warningMessage" style="color: red; margin-top: 40px; margin-left: 70px; display: none;">Only click when immediate assistance is needed!</p>
+        <p id="warningMessage" style="color: red; margin-top: 10px; margin-left: 100px; display: none;">Only click when immediate assistance is needed!</p>
     </form>
 
     <script>
